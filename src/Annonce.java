@@ -4,8 +4,15 @@ public class Annonce {
 	private String titre;
 	private String typeJob;
 	private String description;
+<<<<<<< HEAD
 	
 	public Annonce(String titre, String typeJob, String description){
+=======
+	private int id;
+	
+	public Annonce(int id,String titre, String typeJob, String description){
+		this.id=id;
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
 		this.titre=titre;
 		this.typeJob=typeJob;
 		this.description=description;	
