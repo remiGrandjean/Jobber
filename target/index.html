@@ -18,8 +18,38 @@
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function() {	
+				$('#connection').click(function (event) {
+					var divLogin = document.createElement('div');
+					var divMdp = document.createElement('div');
+					divLogin.innerHTML="<form>Login : <input type='text' id='login' value''>"
+					divMdp.innerHTML="Mot de passe : <input type='password' id='password' value''></br><input type='submit'></form>";
+					document.getElementById("formulaire").appendChild(divLogin);	
+					document.getElementById("formulaire").appendChild(divMdp);				
+				});
 				$('#inscription').click(function (event) {
+					var divNom = document.createElement('div');
+					var divPrenom = document.createElement('div');
+					var divAge = document.createElement('div');
+					var divEmail = document.createElement('div');
+					var divRole = document.createElement('div');
+					var divRole2 = document.createElement('div');
+					divNom.innerHTML="<form>Nom : <input type='text' id='name' value''>";
+					divPrenom.innerHTML="Prenom : <input type='text' id='surname' value''>";
+					divAge.innerHTML="Age : <input type='number' id='age' value''>";
+					divEmail.innerHTML="Email : <input type='email' id='mail' value''>";
+					divRole.innerHTML="Entreprise : <input type='radio' id='role' value='Entreprise'> "; 
+					divRole2.innerHTML="Particulier : <input type='radio' id='role' value='Particulier'></br><input type='submit'></form>";
+					document.getElementById("formulaire").appendChild(divNom);
+					document.getElementById("formulaire").appendChild(divPrenom);
+					document.getElementById("formulaire").appendChild(divAge);
+					document.getElementById("formulaire").appendChild(divEmail);
+					document.getElementById("formulaire").appendChild(divRole);
+					document.getElementById("formulaire").appendChild(divRole2);
+
+				});
+
+				$('#inscripion').click(function (event) {
 	 				 $.ajax({
 						url:"http://localhost:9876/jobber/Developpeur/CDI/web/add",
 						type: "POST",
@@ -154,8 +184,9 @@
 							</li>
 						</ul>
 					</div>
-					<p><div id="inscription" >S'inscrire</div> | Se connecter<p>
+					<p><div id="inscription" >S'inscrire</div> | <div id="connection" >Se connecter</div><p>
 				</div>
+					<div id=formulaire></div>
 			</div>
 		</div>
 		<div id="page2" class="content">
