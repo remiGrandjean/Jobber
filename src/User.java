@@ -1,22 +1,25 @@
 import javax.swing.ImageIcon;
 
-
 public class User {
-	
+
 	private String nom;
 	private String prenom;
 	private String email;
 	private int age;
 	private ImageIcon img;
 	private String mdp;
-	
-	public User(String nom, String prenom, String email,String mdp, int age, ImageIcon img){
-		this.nom=nom;
-		this.prenom=prenom;
-		this.age=age;
-		this.email=email;
-		this.img=img;
-		this.mdp=mdp;
+	private String region;
+	private String role;
+
+	public User(String nom, String prenom, String email, String mdp, int age,
+			String role) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.age = age;
+		this.email = email;
+		this.mdp = mdp;
+		this.region = region;
+		this.role = role;
 	}
 
 	public String getNom() {
@@ -58,10 +61,27 @@ public class User {
 	public void setImg(ImageIcon img) {
 		this.img = img;
 	}
-	public String toString(){
-		return nom+":"+prenom+":"+age+":"+email;
-		
+
+	@Override
+	public String toString() {
+		return nom + ":" + prenom + ":" + age + ":" + email;
+
 	}
-	
+
+	public String getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
 
 }
