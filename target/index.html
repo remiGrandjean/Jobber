@@ -19,6 +19,32 @@
 		<script src="js/tms-0.4.1.js"></script>
 		<script>
 			$(document).ready(function() {	
+<<<<<<< HEAD
+				var str;
+				document.getElementById("formulaire").appendChild(document.createElement('div'));
+				$('#connection').click(function (event) {
+					
+						str = "";
+						str+="<form>Login : <center><input type='text' id='login' placeholder='Login'></center>"
+						str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
+						
+						$('#formulaire div').replaceWith('<div>'+str+'</div>');			
+				
+				});
+				$('#inscription').click(function (event) {
+						str = "";
+						str+="<form><center><input type='text' id='name' placeholder='Votre nom...'></center>";
+						str+="<center><input type='text' id='surname' placeholder='Votre prénom...'></center>";
+						str+="<center><input type='number' id='age' placeholder='Votre âge...'></center>";
+						str+="<center><input type='email' id='mail' placeholder='exemple@123.com'></center>";
+						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
+						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit'></form></div>";
+					
+						
+						$('#formulaire div').replaceWith('<div>'+str+'</div>');		
+					
+			
+=======
 				$('#connection').click(function (event) {
 					var divLogin = document.createElement('div');
 					var divMdp = document.createElement('div');
@@ -47,6 +73,7 @@
 					document.getElementById("formulaire").appendChild(divRole);
 					document.getElementById("formulaire").appendChild(divRole2);
 
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
 				});
 
 				$('#inscripion').click(function (event) {
@@ -186,7 +213,12 @@
 					</div>
 					<p><div id="inscription" >S'inscrire</div> | <div id="connection" >Se connecter</div><p>
 				</div>
+<<<<<<< HEAD
+					<div id='formulaire'></div>
+					<div id='log'></div>
+=======
 					<div id=formulaire></div>
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
 			</div>
 		</div>
 		<div id="page2" class="content">

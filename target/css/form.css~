@@ -3,7 +3,10 @@
 #form {
 padding-top: 6px;
 }
-
+form { 
+margin: 0 auto; 
+width:250px;
+}
 #form input {
 	color:#39596e;
 	 border: 1px solid #3c7f9f;
@@ -139,8 +142,4 @@ padding-top: 6px;
 
 .success_wrapper {
 	position: relative;	
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae

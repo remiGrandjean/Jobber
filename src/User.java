@@ -7,7 +7,12 @@ public class User {
 	private String email;
 	private int age;
 	private ImageIcon img;
+<<<<<<< HEAD
+	
+	public User(String nom, String prenom, String email, int age, ImageIcon img){
+=======
 	private String mdp;
+<<<<<<< HEAD
 	private String region;
 	private String role;
 
@@ -20,6 +25,20 @@ public class User {
 		this.mdp = mdp;
 		this.region = region;
 		this.role = role;
+=======
+	
+	public User(String nom, String prenom, String email,String mdp, int age, ImageIcon img){
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
+		this.nom=nom;
+		this.prenom=prenom;
+		this.age=age;
+		this.email=email;
+		this.img=img;
+<<<<<<< HEAD
+=======
+		this.mdp=mdp;
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
+>>>>>>> 00cab7cbc6441b5017ef7b1ab0f7db27eb631bc6
 	}
 
 	public String getNom() {
