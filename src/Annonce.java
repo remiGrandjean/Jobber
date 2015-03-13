@@ -4,8 +4,10 @@ public class Annonce {
 	private String titre;
 	private String typeJob;
 	private String description;
+	private int id;
 	
-	public Annonce(String titre, String typeJob, String description){
+	public Annonce(int id,String titre, String typeJob, String description){
+		this.id=id;
 		this.titre=titre;
 		this.typeJob=typeJob;
 		this.description=description;	

@@ -8,13 +8,15 @@ public class User {
 	private String email;
 	private int age;
 	private ImageIcon img;
+	private String mdp;
 	
-	public User(String nom, String prenom, String email, int age, ImageIcon img){
+	public User(String nom, String prenom, String email,String mdp, int age, ImageIcon img){
 		this.nom=nom;
 		this.prenom=prenom;
 		this.age=age;
 		this.email=email;
 		this.img=img;
+		this.mdp=mdp;
 	}
 
 	public String getNom() {
