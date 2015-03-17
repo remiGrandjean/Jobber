@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/camera.css">
 		<link rel="stylesheet" href="css/form.css">
-		<link rel="stylesheet" type="text/css" href="css/jslide.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.1.1.js"></script>
 		<script src="js/superfish.js"></script>
@@ -18,70 +17,23 @@
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
-
-		
 		<script>
 			function valid_form(){
-				if(document.myForm.name.value == ""){
+				if(document.myform.name.value == ""){
 					alert("Veuillez entrer votre nom"); 
-					document.myForm.name.focus();
+					document.myform.name.focus();
 					return false;
 				}
-				if(document.formulaire.surname.value == ""){
+				if(document.myform.surname.value == ""){
 					alert("Veuillez entrer votre prénom");
-					document.formulaire.surname.focus();
+					document.myform.surname.focus();
 					return false;
 				} 
 				///////////////
 				//////////////
 				////////A compléter
-
 			};
-		
-
-			$(document).ready(function() {
-				var str;
-				var form;
-				document.getElementById("formulaire").appendChild(document.createElement('div'));
-				$('#connection').click(function (event) {
-					
-						str = "";
-						str+="<form>Login : <center><input type='text' name='login' placeholder='Login'></center>"
-						str+="Mot de passe : <center><input type='password' name='password' placeholder='Mot de passe'></center></br><input type='submit' id='valider'></form>";
-						$('#formulaire div').replaceWith('<div>'+str+'</div>');			
-				
-				});
-				$('#inscription').click(function (event) {
-						str = "";
-						str+="<form action='http://localhost:9876/jobber/addUser' method='post' name='myform'><center><input type='text' id='name' placeholder='Votre nom...'></center>";
-						str+="<center><input type='text' id='surname' placeholder='Votre prénom...'></center>";
-						str+="<center><input type='number' id='age' placeholder='Votre âge...'></center>";
-						str+="<center><input type='email' id='mail' placeholder='exemple@123.com'></center>";
-						str+="Entreprise <input type='radio' name='role' id='role' value='Entreprise'> "; 
-						str+="Particulier<input type='radio' name='role' id='role' value='Particulier'></br><input type='submit'></form></div>";
-						str+="<form name='myForm' method='post' onSubmit='return valid_form()'><center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
-						str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
-						str+="<input type='number' id='line2' name='age' placeholder='Votre âge...'>";
-						str+="<center><input type='email' id='line3' name='mail' placeholder='exemple@123.com'>";
-						str+="<input type='email' id='line3' name='confirm_mail' placeholder='Confimation de votre mail...'></center>";
-						str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
-						str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
-						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
-						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
-
-						$('#formulaire div').replaceWith('<div>'+str+'</div>');		
-					
-			
-
-						$('#formulaire div').replaceWith('<div>'+str+'</div>');
-				});
-<<<<<<< HEAD
-
-$('myform').on('submit',function(e){
-=======
-				
-				$('myform').on('submit',function(e){
->>>>>>> 0e7a674f14a7678bbd0cfb94484e9fdfc3cbfcc5
+			$('myform').on('submit',function(e){
 					e.preventDefault();
 					var $this=$(this);
 					var nom =$('#nom').val();
@@ -103,12 +55,37 @@ $('myform').on('submit',function(e){
 						}
 					});
 				});
-<<<<<<< HEAD
+			$(document).ready(function() {
+				var str;
+				document.getElementById("formulaire").appendChild(document.createElement('div'));
+				$('#connection').click(function (event) {
+					
+						str = "";
+						str+="<form>Login : <center><input type='text' id='login' placeholder='Login'></center>"
+						str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
+						
+						$('#formulaire div').replaceWith('<div>'+str+'</div>');			
 				
+				});
+				$('#inscription').click(function (event) {
+						str = "";
+						str+="<form action='http://localhost:9876/jobber/addUser' method='post' name='myform' onSubmit='return valid_form()'>";
+						str+= "<center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
+						str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
+						str+="<input type='number' id='line2' name='age' placeholder='Votre âge...'>";
+						str+="<center><input type='email' id='line3' name='mail' placeholder='exemple@123.com'>";
+						str+="<input type='email' id='line3' name='confirm_mail' placeholder='Confimation de votre mail...'></center>";
+						str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
+						str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
+						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
+						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
+						//$('#formulaire div').replaceWith('<div>'+str+'</div>');		
+					
+			
+						$('#formulaire div').replaceWith('<div>'+str+'</div>');
+				});
 				
 
-=======
->>>>>>> 0e7a674f14a7678bbd0cfb94484e9fdfc3cbfcc5
 				$('#inscripion').click(function (event) {
 	 				 $.ajax({
 						url:"http://localhost:9876/jobber/Developpeur/CDI/web/add",
@@ -120,19 +97,23 @@ $('myform').on('submit',function(e){
 					error: function( xhr, status, errorThrown ) {
 						alert( "Sorry, there was a problem!");
 						console.log( "Error: "+errorThrown);
-	       				console.log( "Status: "+status);
-			       		console.dir(xhr);
+	       					 console.log( "Status: "+status);
+			       			 console.dir(xhr);
 			   		 },
 		
 	 
 	    		// Code to run regardless of success or failure
 	    				complete: function( xhr, status ) {
-	       					alert( "The request is complete!" );
+	       					 alert( "The request is complete!" );
 	   				 }
 				});
 			});
 
 		});
+		function soumettre(id) {
+			doucment.getElementById(id).target = 'formulaire';
+			window.open('','formulaire',width='800', height='600');
+		}
 			$(document).ready(function(){
 				$('.slider_wrapper')._TMS({
 					show:0,
@@ -200,8 +181,8 @@ $('myform').on('submit',function(e){
 						<nav class="">
 							<ul class="sf-menu">
 								<li class="current men"><a onClick="goToByScroll('page1'); return false;" href="#">Accueil </a> <strong class="hover"></strong></li>
-								<li class="men1"><a onClick="goToByScroll('page2'); return false;" href="#">Trouver un job/profil</a><strong class="hover"></strong></li>
-								<li class=" men2"><a onClick="goToByScroll('page3'); return false;" href="#">Poster une annonce</a> <strong class="hover"></strong></li>
+								<li class="men1"><a onClick="goToByScroll('page2'); return false;" href="#">Trouver un job</a><strong class="hover"></strong></li>
+								<li class=" men2"><a onClick="goToByScroll('page3'); return false;" href="#">Trouver un profil</a> <strong class="hover"></strong></li>
 								<li class=" men3"><a onClick="goToByScroll('page4'); return false;" href="#">Profil</a> <strong class="hover"></strong></li>
 								<li class=" men4"><a onClick="goToByScroll('page5'); return false;" href="#">Contacts</a> <strong class="hover"></strong></li>
 							</ul>
@@ -245,64 +226,28 @@ $('myform').on('submit',function(e){
 						</ul>
 					</div>
 					<p><div id="inscription" >S'inscrire</div> | <div id="connection" >Se connecter</div><p>
-						<div id='formulaire'></div>
+					<div id='formulaire'></div>
 				</div>
+
 					
-			
+					
+				
 
 			</div>
 		</div>
 		<div id="page2" class="content">
 			<div class="container_12">
 				<div class="grid_12">
-					
+					<div class="slogan">
 						<h3>Le site numéro 1 pour trouver un travail ! </h3>
-							 <div class="wrap">
-								<div id="slide">
-								    <ul>
-									<li class="pane1">
-									    <div class="img"></div>
-									    <div>Miami Beach</div>
-									    <div class="like"></div>
-									    <div class="dislike"></div>
-									</li>
-									<li class="pane2">
-									    <div class="img"></div>
-									    <div>San Francisco</div>
-									    <div class="like"></div>
-									    <div class="dislike"></div>
-									</li>
-									<li class="pane3">
-									    <div class="img"></div>
-									    <div>Chicago</div>
-									    <div class="like"></div>
-									    <div class="dislike"></div>
-									</li>
-									<li class="pane4">
-									    <div class="img"></div>
-									    <div>New York</div>
-									    <div class="like"></div>
-									    <div class="dislike"></div>
-									</li>
-									<li class="pane5">
-									    <div class="img"></div>
-									    <div>Beach</div>
-									    <div class="like"></div>
-									    <div class="dislike"></div>
-									</li>
-								    </ul>
-								</div>
-							    </div>
-							<div class="actions">
-      							  <a href="#" class="dislike"><i></i></a>
-      							  <a href="#" class="like"><i></i></a>
-   							 </div>
+						<div class="text1">
+							<a href="trouverjob.html"><img src="images/buttonjob.png" alt=""></a>
+						</div>
 					</div>
 				</div>
 				
 			</div>
 		</div>
-		
 		<div id="page3" class="content">
 			<div class="container_12">
 				<div class="grid_12">
@@ -388,8 +333,5 @@ $('myform').on('submit',function(e){
 				<div class="clear"></div>
 			</div>
 		</footer>
-	 	<script type="text/javascript" src="js/jquery.transform2d.js"></script>
- 		 <script type="text/javascript" src="js/jquery.jslide.js"></script>
-  		 <script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
