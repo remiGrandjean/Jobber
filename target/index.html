@@ -18,31 +18,54 @@
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
 		<script>
-			$(document).ready(function() {	
+			function valid_form(){
+				if(document.myForm.name.value == ""){
+					alert("Veuillez entrer votre nom"); 
+					document.myForm.name.focus();
+					return false;
+				}
+				if(document.formulaire.surname.value == ""){
+					alert("Veuillez entrer votre prénom");
+					document.formulaire.surname.focus();
+					return false;
+				}
+				///////////////
+				//////////////
+				////////A compléter
+
+			}
+		
+
+			$(document).ready(function() {
 				var str;
 				document.getElementById("formulaire").appendChild(document.createElement('div'));
 				$('#connection').click(function (event) {
 					
 						str = "";
-						str+="<form>Login : <center><input type='text' id='login' placeholder='Login'></center>"
-						str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
+						str+="<form>Login : <center><input type='text' name='login' placeholder='Login'></center>"
+						str+="Mot de passe : <center><input type='password' name='password' placeholder='Mot de passe'></center></br><input type='submit' id='valider'></form>";
 						$('#formulaire div').replaceWith('<div>'+str+'</div>');			
 				
 				});
 				$('#inscription').click(function (event) {
 						str = "";
-						str+="<form><center><input type='text' id='name' placeholder='Votre nom...'></center>";
-						str+="<center><input type='text' id='surname' placeholder='Votre prénom...'></center>";
-						str+="<center><input type='number' id='age' placeholder='Votre âge...'></center>";
-						str+="<center><input type='email' id='mail' placeholder='exemple@123.com'></center>";
+						str+="<form name='myForm' method='post' onSubmit='return valid_form()'><center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
+						str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
+						str+="<input type='number' id='line2' name='age' placeholder='Votre âge...'>";
+						str+="<center><input type='email' id='line3' name='mail' placeholder='exemple@123.com'>";
+						str+="<input type='email' id='line3' name='confirm_mail' placeholder='Confimation de votre mail...'></center>";
+						str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
+						str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
 						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
-						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit'></form></div>";
-					
-						
+						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
+
 						$('#formulaire div').replaceWith('<div>'+str+'</div>');		
 					
 			
+
+						$('#formulaire div').replaceWith('<div>'+str+'</div>');
 				});
+				
 
 				$('#inscripion').click(function (event) {
 	 				 $.ajax({
@@ -108,7 +131,7 @@
 			}(); });
 					function goToByScroll(id){
 				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
-				}
+				}				
 				$(document).ready(function(){
 					$().UItoTop({ easingType: 'easeOutQuart' });
 				});
@@ -180,9 +203,11 @@
 						</ul>
 					</div>
 					<p><div id="inscription" >S'inscrire</div> | <div id="connection" >Se connecter</div><p>
+						<div id='formulaire'></div>
 				</div>
-					<div id='formulaire'></div>
-					<div id='log'></div>
+					
+			
+
 			</div>
 		</div>
 		<div id="page2" class="content">
