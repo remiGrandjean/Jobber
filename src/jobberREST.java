@@ -27,7 +27,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/{email}/{mdp}/{nom}/{prenom}/{age}/{region}/{role}/add")
+	@Path("/jobber/addUser")
 	public void createUser(@PathParam("email") String email,
 			@PathParam("mdp") String mdp, @PathParam("nom") String nom,
 			@PathParam("prenom") String prenom, @PathParam("age") int age,
@@ -37,7 +37,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/{titre}/{typeJob}/{description}/{region}/add")
+	@Path("/jobber/addAnnonce")
 	public void createAnnonce(@PathParam("titre") String titre,
 			@PathParam("typeJob") String typeJob,
 			@PathParam("description") String description,

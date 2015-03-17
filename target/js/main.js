@@ -17,9 +17,7 @@ $("#slide").jslide({
 	dislikeSelector: '.dislike'
 });
 
-/**
- * Set button action to trigger jTinder like & dislike.
- */
+
 $('.actions .like, .actions .dislike').click(function(e){
 	e.preventDefault();
 	$("#slide").jslide($(this).attr('class'));

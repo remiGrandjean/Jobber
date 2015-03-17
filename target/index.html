@@ -18,6 +18,7 @@
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
+
 		
 		<script>
 			function valid_form(){
@@ -52,6 +53,12 @@
 				});
 				$('#inscription').click(function (event) {
 						str = "";
+						str+="<form action='http://localhost:9876/jobber/addUser' method='post' name='myform'><center><input type='text' id='name' placeholder='Votre nom...'></center>";
+						str+="<center><input type='text' id='surname' placeholder='Votre prénom...'></center>";
+						str+="<center><input type='number' id='age' placeholder='Votre âge...'></center>";
+						str+="<center><input type='email' id='mail' placeholder='exemple@123.com'></center>";
+						str+="Entreprise <input type='radio' name='role' id='role' value='Entreprise'> "; 
+						str+="Particulier<input type='radio' name='role' id='role' value='Particulier'></br><input type='submit'></form></div>";
 						str+="<form name='myForm' method='post' onSubmit='return valid_form()'><center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
 						str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
 						str+="<input type='number' id='line2' name='age' placeholder='Votre âge...'>";
@@ -68,8 +75,13 @@
 
 						$('#formulaire div').replaceWith('<div>'+str+'</div>');
 				});
+<<<<<<< HEAD
 
 $('myform').on('submit',function(e){
+=======
+				
+				$('myform').on('submit',function(e){
+>>>>>>> 0e7a674f14a7678bbd0cfb94484e9fdfc3cbfcc5
 					e.preventDefault();
 					var $this=$(this);
 					var nom =$('#nom').val();
@@ -91,9 +103,12 @@ $('myform').on('submit',function(e){
 						}
 					});
 				});
+<<<<<<< HEAD
 				
 				
 
+=======
+>>>>>>> 0e7a674f14a7678bbd0cfb94484e9fdfc3cbfcc5
 				$('#inscripion').click(function (event) {
 	 				 $.ajax({
 						url:"http://localhost:9876/jobber/Developpeur/CDI/web/add",

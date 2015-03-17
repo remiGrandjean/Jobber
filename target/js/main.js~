@@ -22,5 +22,5 @@ $("#slide").jslide({
  */
 $('.actions .like, .actions .dislike').click(function(e){
 	e.preventDefault();
-	$("#slide").jTinder($(this).attr('class'));
+	$("#slide").jslide($(this).attr('class'));
 });

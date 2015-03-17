@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>JobberREST</groupId>
-  <artifactId>JobberREST</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <dependencies>
-    <dependency>
-        <!-- serveur http simple -->
-        <groupId>org.glassfish.jersey.containers</groupId>
-        <artifactId>jersey-container-jdk-http</artifactId>
-        <version>${jersey.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.glassfish.jersey.core</groupId>
-        <artifactId>jersey-server</artifactId>
-        <version>${jersey.version}</version>
-    </dependency>
-</dependencies>
-<properties>
-    <jersey.version>2.16</jersey.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
-=======
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -63,5 +38,5 @@
 		<jersey.version>2.16</jersey.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
->>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
+
 </project>

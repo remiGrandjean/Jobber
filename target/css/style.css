@@ -207,9 +207,13 @@ header {
 	left: 0;
 	right: 0;
 	padding-bottom: 0px;
+<<<<<<< HEAD
+	padding-bottom: 20px;
+=======
 
 	padding-bottom: 20px;
 
+>>>>>>> 9be81c4b5b5f97ecbdd35ba52a20370d5284236b
 	top: 0;
 	overflow: hidden;
 	background-color: #334960;
@@ -651,4 +655,12 @@ footer a:hover {
 }
 #toTop:hover {
 	background-position: right 0;
+<<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
+=======
+}
+>>>>>>> 9be81c4b5b5f97ecbdd35ba52a20370d5284236b

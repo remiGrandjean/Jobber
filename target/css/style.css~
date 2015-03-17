@@ -168,6 +168,7 @@ header {
 	z-index: 999;
 	left: 0;
 	right: 0;
+	padding-bottom: 0px;
 	padding-bottom: 20px;
 	top: 0;
 	overflow: hidden;
@@ -280,7 +281,7 @@ header.page5 .men4 .hover{
 }
 
 header.page2 {
-	background-color: #f17c72;
+	background-color: url("../images/noProfil.png") no-repeat;
 }
 
 header.page2 .hover {
@@ -610,4 +611,8 @@ footer a:hover {
 }
 #toTop:hover {
 	background-position: right 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
