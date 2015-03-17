@@ -7,7 +7,7 @@
 
 #slide {
     position: relative;
-    background: #fff;
+    background: url("../images/noProfil") no-repeat;
     width: 95%;
     height: 100%;
 }
@@ -78,7 +78,7 @@
 
 #slide .like,
 #slide .dislike {
-    background: url("../img/liked.png") no-repeat scroll 0 0;
+    background: url("../images/liked.png") no-repeat scroll 0 0;
     opacity: 0;
     height: 80px;
     position: absolute;
@@ -99,7 +99,7 @@
 #slide .dislike {
     right: 45px;
     left: auto;
-    background: url("../img/nope.png") no-repeat scroll 0 0;
+    background: url("../images/nope.png") no-repeat scroll 0 0;
 }
 
 
@@ -141,11 +141,11 @@
 }
 
 .actions a.dislike i {
-    background: url("../img/dislike_button.png") no-repeat scroll center center;
+    background: url("../images/dislike_button.png") no-repeat scroll center center;
 }
 
 .actions a.like i {
-    background: url("../img/like_button.png") no-repeat scroll center center;
+    background: url("../images/like_button.png") no-repeat scroll center center;
 }
 
 .actions a {

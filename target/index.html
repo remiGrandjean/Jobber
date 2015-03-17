@@ -18,6 +18,7 @@
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
+
 		
 		<script>
 			$(document).ready(function() {
@@ -35,37 +36,39 @@
 				});
 				$('#inscription').click(function (event) {
 						str = "";
-						str+="<form><center><input type='text' id='name' placeholder='Votre nom...'></center>";
+						str+="<form action='http://localhost:9876/jobber/addUser' method='post' name='myform'><center><input type='text' id='name' placeholder='Votre nom...'></center>";
 						str+="<center><input type='text' id='surname' placeholder='Votre prénom...'></center>";
 						str+="<center><input type='number' id='age' placeholder='Votre âge...'></center>";
 						str+="<center><input type='email' id='mail' placeholder='exemple@123.com'></center>";
-						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
-						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit'></form></div>";
+						str+="Entreprise <input type='radio' name='role' id='role' value='Entreprise'> "; 
+						str+="Particulier<input type='radio' name='role' id='role' value='Particulier'></br><input type='submit'></form></div>";
 					
 						
 						$('#formulaire div').replaceWith('<div>'+str+'</div>');
 				});
 				
-				form.onsubmit=function(event){
-					event.preventDefault();
-					var data={};
-					  for (var i = 0, ii = form.length; i < ii; ++i) {
-  					 	 var input = form[i];
-   						 if (input.name) {
-  					 	   data[input.name] = input.value;
-   						 }
-  					}
-					 var xhr = new XMLHttpRequest();
-					  xhr.open(form.method, form.action, true);
-					  xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-
-					  xhr.send(JSON.stringify(data));
-
-					  xhr.onloadend = function () {
-  					  };
-
+				$('myform').on('submit',function(e){
+					e.preventDefault();
+					var $this=$(this);
+					var nom =$('#nom').val();
+					var prenom =$('#prenom').val();
+					var mail =$('#mail').val();
+					var role =$('#role').val();
+					
+					$.ajax({
+						url:$this.attr('action'),
+						type: $this.attr('method'),
+						data: $this.serialize(),
+						dataType: 'json', 
+						success: function(json) {
+						    if(json.reponse === 'ok') {
+							alert('Tout est bon');
+						    } else {
+							alert('Erreur : '+ json.reponse);
+						    }
+						}
+					});
 				});
-
 				$('#inscripion').click(function (event) {
 	 				 $.ajax({
 						url:"http://localhost:9876/jobber/Developpeur/CDI/web/add",
