@@ -29,9 +29,22 @@
 					document.myform.surname.focus();
 					return false;
 				} 
-				///////////////
-				//////////////
-				////////A compléter
+				if(document.myform.age.value < 0){
+					alert("Veuillez entrer un âge valide");
+					document.myform.surname.focus();
+					return false;
+				}
+				if(document.myform.mail.value !== document.myform.confirm_mail.value){
+					alert("Erreur dans la répétition du mail");
+					document.myform.mail.focus();
+					return false;
+				}
+				if(document.myform.password.value !== document.myform.confirm_passwd.value){
+					alert("Erreur dans la répétition du mot de passe");
+					document.myform.password.focus();
+					return false;
+				}
+				
 			};
 			$('myform').on('submit',function(e){
 					e.preventDefault();
