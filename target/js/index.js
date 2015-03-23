@@ -11,7 +11,7 @@ $(document).ready(function(event) {
 	addNewProfile();
 
 	function swipe() {
-		Draggable.create("#photo", {
+		Draggable.create("#annonce", {
 		   	throwProps:true,
 		   	onDragEnd:function(endX) {
 	   			if(Math.round(this.endX) > 0 ) {
@@ -27,38 +27,36 @@ $(document).ready(function(event) {
 
 	function swipeLike() {
 		
-			var $photo = $("div.content").find('#photo');
+			var $annonce = $("div.content").find('#annonce');
 
-			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$photo]});
-			swipe.staggerTo($photo, 0.8, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
+			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$annonce]});
+			swipe.staggerTo($annonce, 0.8, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
 
 	function swipeDislike() {
 		
-			var $photo = $("div.content").find('#photo');
+			var $annonce = $("div.content").find('#annonce');
 
-			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$photo]});
-			swipe.staggerTo($photo, 0.8, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
+			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$annonce]});
+			swipe.staggerTo($annonce, 0.8, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
 
-	function remove(photo) {
-	    $(photo).remove();
+	function remove(annonce) {
+	    $(annonce).remove();
 	}
 
 	function addNewProfile() {
-		var names = ['Lieke', 'Christina', 'Sanne', 'Soraya', 'Chanella', 'Larissa', 'Michelle'][Math.floor(Math.random() * 7)];
-		var ages = ['19','22','18','27','21', '18', '24'][Math.floor(Math.random() * 7)]
-		var photos = ['1', '2', '3', '4', '5', '6', '7'][Math.floor(Math.random() * 7)]
-		$("div.content").prepend('<div class="photo" id="photo" style="background-image:url(http://web.arjentienkamp.com/codepen/tinder/photo'+photos+'.jpg)">'
-    	+ '<span class="meta">' 
-    	+ '<p>'+names+', '+ages+'</p>' 
-    	+ '<span class="moments">0</span>' 
-    	+ '<span class="users">0</span>' 
-    	+ '</span>' 
+		var random =Math.floor(Math.random() * 7);
+		var description=['Recherche stagiaire pour un stage','cherche</br> administrateur</br> reseau</br> bac+3 </br>avec 2</br> ans d</br> experie</br>nce','cherche quelqu un de competent','on accepte tout le monde','venez comme vous êtes','cherche sportif','Organisation réservé aux membre VIP'][random];
+		var names = ['CGI', 'GFI', 'IBM', 'CAPGEMINI', 'McDonald', 'Décathlon', 'Boid'][random];
+		var typeJob = ['Stage','CDI','CDD','CDD','Interim', 'Stage', 'Maitre du monde'][random];
+		var annonces = ['1', '2', '3', '4', '5', '6', '7'][random];
+		$("div.content").prepend('<div class="annonce" id="annonce"><span class="meta"><p>'+names+', '+typeJob+'</p></span>'
+		+description
     	+ '</div>');
 
     	swipe();
