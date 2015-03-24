@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="css/camera.css">
 		<link rel="stylesheet" href="css/form.css">
 
-		
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.1.1.js"></script>
 		<script src="js/superfish.js"></script>
@@ -19,185 +18,12 @@
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/jquery.ui.totop.js"></script>
 		<script src="js/tms-0.4.1.js"></script>
-
+		<script src="js/customProfile.js"></script>
+		<script src="js/signUpForm.js"></script>
 
 		<script>
-
-			function loadProfil(){
-					var nom,prenom,region,age,formation,experience,loisirs,information;
-					 $.ajax({
-				        type: "GET",
-				        url: "http://localhost:9876/v1/jobber/user",			
-				        contentType: "application/json; charset=utf-8",				   
-				       	data: '{"nom": "'+nom+'","prenom":"'+prenom+'","region":"'+region+'","age":"'+age+'","formation":"'+formation+'","experience":"'+experience+'","loisirs":"'+loisirs+'","information":"'+information+'"}',
-				        dataType: "json",
-				        success:function(){
-				        	alert(data);
-				        },
-				        error:function(){
-				        	alert("Error");
-				        }
-				    });
-					$('inforperso').replaceWith(nom+' '+prenom+' '+age+'</br>'+region);
-					$('myFormation').replaceWith(formation);
-					$('myExperience').replaceWith(experience);
-					$('myLoisirs').replaceWith(loisirs);
-					$('myInformation').replaceWith(information);
-
-			}
-
-			function addFormation(){
-
-				$('#myFormation').append("<input type='text' id='inputFormation' value='' placeholder='Ajouter une formation'><input type='month' id='dateformation' placeholder='MM/AAAA'><input type='button' id='valideformation' value='Valider'>");
-				
-					$('#valideformation').click(function(){
-						if($('#inputFormation').val()!==undefined && $('#dateformation').val()!==undefined){
-						var text = $('#inputFormation').val();
-						var date = $('#dateformation').val();
-						$('#inputFormation').detach();
-						$('#dateformation').detach();
-						$('#valideformation').detach();
-						if(text!=='' && date!==''){
-							$('#myFormation').prepend('<b>'+text+'  '+date+'</b></br>');
-						}
-					}
-					});
-				
-			}
-			function addExperience(){
-				$('#myExperience').append("<input type='text' id='inputExperience' value='' placeholder='Ajouter une experience'><input type='month' id='dateexperience' placeholder='MM/AAAA'><input type='button' id='valideexperience' value='Valider'>");
-				$('#valideexperience').click(function(){
-					if($('#inputExperience').val()!==undefined && $('#dateexperience').val()!==undefined ){
-					var text = $('#inputExperience').val();
-					var date = $('#dateexperience').val();
-					$('#inputExperience').detach();
-					$('#dateexperience').detach();
-					$('#valideexperience').detach();
-					if(text!=='' && date!==''){
-						$('#myExperience').prepend('<b>'+text+'  '+date+'</b></br>');
-					}
-				}
-				});
-			}
-			function addLoisirs(){
-				$('#myLoisirs').append("<textarea rows='3' cols='50' id='arealoisirs' placeholder='Loisirs...''></textarea><input type='button' id='valideloisirs' value='Valider'>");
-				$('#valideloisirs').click(function(){
-					if($('#arealoisirs').val()!==undefined ){
-					var text = $('#arealoisirs').val();
-					$('#arealoisirs').detach();
-					$('#valideloisirs').detach();
-					if(text!=='' ){
-						$('#myLoisirs').prepend('<b>'+text+'</b></br>');
-					}
-
-				}
-				});
-			}
-			function addInformation(){
-				$('#myInformation').append("<textarea rows='3' cols='50' id='areainformation' placeholder='Informations complémentaires...''></textarea><input type='button' id='valideinformation' value='Valider'>");
-				$('#valideinformation').click(function(){
-					if($('#areainformation').val()!==undefined ){
-					var text = $('#areainformation').val();
-					$('#areainformation').detach();
-					$('#valideinformation').detach();
-					if(text!=='' ){
-						$('#myInformation').prepend('<b>'+text+'</b></br>');
-					}
-				} 	
-				});
-			}
 			
-			function valid_form(){
-				if(document.myform.name.value == ""){
-					alert("Veuillez entrer votre nom"); 
-					document.myform.name.focus();
-					return false;
-				}
-				if(document.myform.surname.value == ""){
-					alert("Veuillez entrer votre prénom");
-					document.myform.surname.focus();
-					return false;
-				} 
-				if(document.myform.age.value < 0){
-					alert("Veuillez entrer un âge valide");
-					document.myform.surname.focus();
-					return false;
-				}
-				if(document.myform.mail.value !== document.myform.confirm_mail.value){
-					alert("Erreur dans la répétition du mail");
-					document.myform.mail.focus();
-					return false;
-				}
-				if(document.myform.passwd.value !== document.myform.confirm_passwd.value){
-					alert("Erreur dans la répétition du mot de passe");
-					document.myform.passwd.focus();
-					return false;
-				}
-				
-			};
-			$('connectionform').on('submit',function(e){
-				e.preventDefault();
-				var email=$('login').val();
-				var mdp =$('password').val();
-				a = new authen(email,mdp);
-				console.log(a);
-				 $.ajax({
-				        type: "GET",
-				        url: "http://localhost:9876/v1/jobber/user",			
-				        contentType: "application/json; charset=utf-8",				   
-				       	data: '{"email": "' + email + '", "mdp" : "' + mdp + '"}',
-				        dataType: "json",
-				        success:function(){
-				        	alert(data);
-				        },
-				        error:function(){
-				        	alert("Error");
-				        }
-				    });
-
-
-
-			});
-			$('myform').on('submit',function(e){
-					console.log("boid");
-					e.preventDefault();
-					var $this=$(this);
-					var nom =$('nom').val();
-					var prenom =$('prenom').val();
-					var mail =$('mail').val();
-					var role =$('role').val();
-					var mdp =$('passwd').val();
-					var region =$('region').val();
-
-					var data= {
-						'email': mail,
-						'mdp': mdp,
-						'nom': nom,
-						'prenom': prenom,
-						'age': age,
-						'region': region,
-						'role': role,
-
-					}
-					console.log(email+mdp+nom+prenom+age+region+role);
-
-
-					 $.ajax({
-				        type: "POST",
-				        url: "http://localhost:9876/v1/jobber/addUser",			
-				        contentType: "application/json; charset=utf-8",				   
-				        data: JSON.stringify(data),
-				        dataType: "json",
-				        success:function(){
-				        	alert("gg");
-				        },
-				        error:function(){
-				        	alert("pas gg");
-				        }
-				    });
-				});
 			$(document).ready(function() {
-
 				var a=undefined;
 				var authen = function(email,mdp){
 					this.email=email;
@@ -210,64 +36,52 @@
 						$('#formulaire').append("Identifiants erronés");
 						console.log("pas gg");
 					}
-				}
-				
+				}	
 				if(a!==undefined){
 					var email=a.email;
 					var mdp =a.mdp;
 					console.log(email,mdp);
 					$.ajax({
-				    	    type: "GET",
-				    	    url: "http://localhost:9876/v1/jobber/user/"+email+"/"+mdp,			
-				    	    contentType: "application/json; charset=utf-8",				   
-				    	   	data: '{"email": "' + email + '", "mdp" : "' + mdp + '"}',
-				  	        dataType: "json",
-				  	      	success:function(){
-				        		$('#profil').append(data);
-				    	    },
-				 	       error:function(){
-					        	alert("Error");
-					        }
+				   	    type: "GET",
+				   	    url: "http://localhost:9876/v1/jobber/user/"+email+"/"+mdp,			
+				   	    contentType: "application/json; charset=utf-8",				   
+				   	   	data: '{"email": "' + email + '", "mdp" : "' + mdp + '"}',
+				        dataType: "json",
+				      	success:function(){
+				       		$('#profil').append(data);
+				   	    },
+				        error:function(){
+					       	alert("Error");
+					    }
 					});
 				}
 				window.onload=loadProfil();
 				var str;
 				document.getElementById("formulaire").appendChild(document.createElement('div'));
 				$('#connection').click(function (event) {
-					
-						str = "";
-						str+="<form name='connectionform' >Login : <center><input type='text' id='login' placeholder='Login'></center>"
-						str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
-						
-						$('#formulaire div').replaceWith('<div>'+str+'</div>');			
-				
+					str = "";
+					str+="<form name='connectionform' >Login : <center><input type='text' id='login' placeholder='Login'></center>"
+					str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
+					$('#formulaire div').replaceWith('<div>'+str+'</div>');				
 				});
 				$('#inscription').click(function (event) {
-						str = "";
-						str+="<form  name='myform' onSubmit='return valid_form()'>";
-						str+= "<center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
-						str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
-						str+="<center><input type='number' id='line2' name='age' placeholder='Votre âge...'></center>";
-						str+="<center><input type='text' id='line2bis' name='region' placeholder='Votre region...' value=''></center>";
-						str+="<center><input type='email' id='line3' name='mail' placeholder='exemple@123.com'>";
-						str+="<input type='email' id='line3' name='confirm_mail' placeholder='Confimation de votre mail...'></center>";
-						str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
-						str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
-						str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
-						str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
-						//$('#formulaire div').replaceWith('<div>'+str+'</div>');		
-					
-			
-						$('#formulaire div').replaceWith('<div>'+str+'</div>');
+					str = "";
+					str+="<form  name='myform' onSubmit='return valid_form()'>";
+					str+= "<center><input type='text' id='line1' name='name' placeholder='Votre nom...'>";
+					str+="<input type='text' id='line1' name='surname' placeholder='Votre prénom...' value=''></center>";
+					str+="<center><input type='number' id='line2' name='age' placeholder='Votre âge...'></center>";
+					str+="<center><input type='text' id='line2bis' name='region' placeholder='Votre region...' value=''></center>";
+					str+="<center><input type='email' id='line3' name='mail' placeholder='exemple@123.com'>";
+					str+="<input type='email' id='line3' name='confirm_mail' placeholder='Confimation de votre mail...'></center>";
+					str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
+					str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
+					str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
+					str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
+					//$('#formulaire div').replaceWith('<div>'+str+'</div>');				
+					$('#formulaire div').replaceWith('<div>'+str+'</div>');
 				});
-				
-
-
-		});
-		function soumettre(id) {
-			doucment.getElementById(id).target = 'formulaire';
-			window.open('','formulaire',width='800', height='600');
-		}
+			});
+			
 			$(document).ready(function(){
 				$('.slider_wrapper')._TMS({
 					show:0,
@@ -286,28 +100,30 @@
 					progressBar:false
 				});
 			});
-			$(document).ready(function(){
-				!function(){
-			var map=[]
-			 ,names=[]
-			 ,win=$(window)
-			 ,header=$('header')
-			 ,currClass
-			$('.content').each(function(n){
-			 map[n]=this.offsetTop
-			 names[n]=$(this).attr('id')
-			})
-			win
-			 .on('scroll',function(){
-				var i=0
-				while(map[i++]<=win.scrollTop());
-				if(currClass!==names[i-2])
-				currClass=names[i-2]
-				header.removeAttr("class").addClass(names[i-2])
-			 })
-			}(); });
-					function goToByScroll(id){
-				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+				$(document).ready(function(){
+					!function(){
+						var map=[]
+			 			,names=[]
+						,win=$(window)
+						,header=$('header')
+			 			,currClass;
+						$('.content').each(function(n){
+			 				map[n]=this.offsetTop;
+			 				names[n]=$(this).attr('id');
+						});
+						win.on('scroll',function(){
+							var i=0;
+							
+							while(map[i++]<=win.scrollTop());
+							if(currClass!==names[i-2])
+								currClass=names[i-2];
+								header.removeAttr("class").addClass(names[i-2]);
+			 			});
+					}(); 
+				});
+				
+				function goToByScroll(id){
+					$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
 				}				
 				$(document).ready(function(){
 					$().UItoTop({ easingType: 'easeOutQuart' });
