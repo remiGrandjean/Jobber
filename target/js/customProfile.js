@@ -1,23 +1,19 @@
 function loadProfil(){
-	var nom,prenom,region,age,formation,experience,loisirs,information;
+	var nom,prenom,region,age;
 	$.ajax({
 	    type: "GET",
-        url: "http://localhost:9876/v1/jobber/user",			
+        url: "http://localhost:9876/v1/user/getInfoperso",			
 	    contentType: "application/json; charset=utf-8",				   
-		data: '{"nom": "'+nom+'","prenom":"'+prenom+'","region":"'+region+'","age":"'+age+'","formation":"'+formation+'","experience":"'+experience+'","loisirs":"'+loisirs+'","information":"'+information+'"}',
+		data: '{"nom": "'+nom+'","prenom":"'+prenom+'","region":"'+region+'","age":"'+age+'"}',
 	    dataType: "json",
 		success:function(){
-        	alert(data);
+        	$('inforperso').replaceWith(nom+' '+prenom+' '+age+'</br>'+region);
         },
         error:function(){
 	    	alert("Error");
 		}
 	});
-	$('inforperso').replaceWith(nom+' '+prenom+' '+age+'</br>'+region);
-	$('myFormation').replaceWith(formation);
-	$('myExperience').replaceWith(experience);
-	$('myLoisirs').replaceWith(loisirs);
-	$('myInformation').replaceWith(information);
+	
 }
 
 function addFormation(){

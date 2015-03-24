@@ -14,50 +14,58 @@ public class jobberREST {
 	private static GenericDao dao = InitBDD.dbi.open(GenericDao.class);
 
 	@GET
-	@Path("/jobber/allUser")
+	@Path("/user/allUser")
 	public String getAllUser() {
 		return dao.findAllUsers();
 	}
 
 	@GET
-	@Path("/jobber/allAnnonce")
+	@Path("/annonce/allAnnonce")
 	public String getAllAnnonce() {
 		return dao.findAllAnnonce();
 	}
 
 	@GET
-	@Path("/jobber/user")
+	@Path("/user")
 	public User getUserByMail(@PathParam("email") String email,
 			@PathParam("mdp") String mdp) {
 		return dao.findUsersByLog(email, mdp);
 	}
 
 	@GET
-	@Path("/jobber/user")
+	@Path("/user/getFormation")
 	public String getFormationByMail(@PathParam("email") String email,
 			@PathParam("formation") String formation) {
 		return dao.findFormationFromUser(email, formation);
 	}
 
 	@GET
-	@Path("/jobber/user")
+	@Path("/user/getExperience")
 	public String getExperienceByMail(@PathParam("email") String email,
 			@PathParam("experience") String experience) {
-		return dao.findFormationFromUser(email, experience);
+		return dao.findExperienceFromUser(email, experience);
 	}
 
 	@GET
-	@Path("/jobber/user")
+	@Path("/user/getLoisirs")
 	public String getLoisirsByMail(@PathParam("email") String email,
 			@PathParam("loisirs") String loisirs) {
-		return dao.findFormationFromUser(email, loisirs);
+		return dao.findLoisirsFromUser(email, loisirs);
 	}
 
 	@GET
-	@Path("/jobber/user")
+	@Path("/user/getInformation")
 	public String getInformationByMail(@PathParam("email") String email,
 			@PathParam("formation") String information) {
-		return dao.findFormationFromUser(email, information);
+		return dao.findInformationFromUser(email, information);
+	}
+
+	@GET
+	@Path("/user/getInfoperso")
+	public String getInfoperso(@PathParam("email") String email,
+			@PathParam("nom") String nom, @PathParam("prenom") String prenom,
+			@PathParam("age") int age, @PathParam("region") String region) {
+		return dao.findInfoPerso(nom, prenom, age, region, email);
 	}
 
 	@POST
@@ -79,10 +87,26 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addUser")
+	@Path("/jobber/addExperience")
 	public void addExperience(@PathParam("email") String email,
 			@PathParam("experience") String experience) {
 		dao.addFormation(email, experience);
+
+	}
+
+	@POST
+	@Path("/jobber/addLoisirs")
+	public void addLoisirs(@PathParam("email") String email,
+			@PathParam("loisirs") String loisirs) {
+		dao.addFormation(email, loisirs);
+
+	}
+
+	@POST
+	@Path("/jobber/addInformation")
+	public void addInformation(@PathParam("email") String email,
+			@PathParam("information") String information) {
+		dao.addFormation(email, information);
 
 	}
 

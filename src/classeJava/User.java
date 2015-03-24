@@ -1,4 +1,5 @@
 package classeJava;
+
 import javax.swing.ImageIcon;
 
 public class User {
@@ -11,9 +12,13 @@ public class User {
 	private String mdp;
 	private String region;
 	private String role;
+	private String formation;
+	private String experience;
+	private String loisirs;
+	private String information;
 
 	public User(String nom, String prenom, String email, String mdp, int age,
-			String role) {
+			String role, String region) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
@@ -93,6 +98,46 @@ public class User {
 
 	public void setRegion(String region) {
 		this.region = region;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getFormation() {
+		return formation;
+	}
+
+	public void setFormation(String formation) {
+		this.formation = formation;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public String getLoisirs() {
+		return loisirs;
+	}
+
+	public void setLoisirs(String loisirs) {
+		this.loisirs = loisirs;
+	}
+
+	public String getInformation() {
+		return information;
+	}
+
+	public void setInformation(String information) {
+		this.information = information;
 	}
 
 }

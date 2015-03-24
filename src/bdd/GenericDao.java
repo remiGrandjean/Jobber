@@ -49,6 +49,32 @@ public interface GenericDao {
 	int addInformation(@Bind("information") String information,
 			@Bind("email") String mail);
 
+	@SqlQuery("select formation from Users where email= :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findFormationFromUser(@Bind("email") String mail,
+			@Bind("formation") String formation);
+
+	@SqlQuery("select experience from Users where email= :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findExperienceFromUser(@Bind("email") String mail,
+			@Bind("formation") String experience);
+
+	@SqlQuery("select loisirs from Users where email= :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findLoisirsFromUser(@Bind("email") String mail,
+			@Bind("formation") String loisirs);
+
+	@SqlQuery("select information from Users where email= :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findInformationFromUser(@Bind("email") String mail,
+			@Bind("formation") String information);
+
+	@SqlQuery("select nom,prenom,age,region from Users where email= :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findInfoPerso(@Bind("nom") String nom,
+			@Bind("prenom") String prenom, @Bind("age") int age,
+			@Bind("region") String region, @Bind("email") String email);
+
 	@SqlUpdate("drop table if exists Users")
 	void dropUserTable();
 
