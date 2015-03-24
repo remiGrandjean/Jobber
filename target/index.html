@@ -47,40 +47,63 @@
 			}
 
 			function addFormation(){
-				$('#myFormation').append("<input type='text' id='inputFormation' value='' placeholder='Ajouter une formation'><input type='month' id='dateformation' placeholder='MM/AAAA'><input type='button' id='valideformation' value='Valider'>");
-				$('#valideformation').click(function(){
-					var text = $('#inputFormation').val();
-					var date = $('#dateformation').val();
-					$('#inputFormation').detach();
-					$('#dateformation').detach();
-					$('#myFormation').prepend('<b>'+text+'  '+date+'</b></br>');
-				});
 
+				$('#myFormation').append("<input type='text' id='inputFormation' value='' placeholder='Ajouter une formation'><input type='month' id='dateformation' placeholder='MM/AAAA'><input type='button' id='valideformation' value='Valider'>");
+				
+					$('#valideformation').click(function(){
+						if($('#inputFormation').val()!==undefined && $('#dateformation').val()!==undefined){
+						var text = $('#inputFormation').val();
+						var date = $('#dateformation').val();
+						$('#inputFormation').detach();
+						$('#dateformation').detach();
+						$('#valideformation').detach();
+						if(text!=='' && date!==''){
+							$('#myFormation').prepend('<b>'+text+'  '+date+'</b></br>');
+						}
+					}
+					});
+				
 			}
 			function addExperience(){
 				$('#myExperience').append("<input type='text' id='inputExperience' value='' placeholder='Ajouter une experience'><input type='month' id='dateexperience' placeholder='MM/AAAA'><input type='button' id='valideexperience' value='Valider'>");
 				$('#valideexperience').click(function(){
+					if($('#inputExperience').val()!==undefined && $('#dateexperience').val()!==undefined ){
 					var text = $('#inputExperience').val();
 					var date = $('#dateexperience').val();
 					$('#inputExperience').detach();
 					$('#dateexperience').detach();
-					$('#myExperience').prepend('<b>'+text+'  '+date+'</b></br>');
+					$('#valideexperience').detach();
+					if(text!=='' && date!==''){
+						$('#myExperience').prepend('<b>'+text+'  '+date+'</b></br>');
+					}
+				}
 				});
 			}
 			function addLoisirs(){
 				$('#myLoisirs').append("<textarea rows='3' cols='50' id='arealoisirs' placeholder='Loisirs...''></textarea><input type='button' id='valideloisirs' value='Valider'>");
 				$('#valideloisirs').click(function(){
+					if($('#arealoisirs').val()!==undefined ){
 					var text = $('#arealoisirs').val();
 					$('#arealoisirs').detach();
-					$('#myLoisirs').prepend('<b>'+text+'</b></br>');
+					$('#valideloisirs').detach();
+					if(text!=='' ){
+						$('#myLoisirs').prepend('<b>'+text+'</b></br>');
+					}
+
+				}
 				});
 			}
 			function addInformation(){
 				$('#myInformation').append("<textarea rows='3' cols='50' id='areainformation' placeholder='Informations complémentaires...''></textarea><input type='button' id='valideinformation' value='Valider'>");
 				$('#valideinformation').click(function(){
+					if($('#areainformation').val()!==undefined ){
 					var text = $('#areainformation').val();
 					$('#areainformation').detach();
-					$('#myInformation').prepend('<b>'+text+'</b></br>');
+					$('#valideinformation').detach();
+					if(text!=='' ){
+						$('#myInformation').prepend('<b>'+text+'</b></br>');
+					}
+				} 	
 				});
 			}
 			
@@ -174,6 +197,7 @@
 				    });
 				});
 			$(document).ready(function() {
+
 				var a=undefined;
 				var authen = function(email,mdp){
 					this.email=email;
@@ -206,7 +230,7 @@
 					        }
 					});
 				}
-
+				window.onload=loadProfil();
 				var str;
 				document.getElementById("formulaire").appendChild(document.createElement('div'));
 				$('#connection').click(function (event) {
@@ -397,32 +421,33 @@
 				<div class="grid_12 id="profil"">
 					<h3>Profil de : </h3>
 						<div class="text1">
-							<div id='infoperso'>Nom  Prenom    Age
-						</br>
-							Region</div>
-						</div>
-						<div class="text2">
-						</br>
-						</br>
-							<div  id="myFormation">Formation : <input type="button" name="addformation" value="Ajouter une formation" onClick="addFormation()"></div> 
-						</br>
-						</br>
-							<div  id="myExperience">Expérience : <input type="button" name="addexperience" value="Ajouter une expérience" onClick="addExperience()"></div>
-						</br>
-						</br>
-							<div  id="myLoisirs">Loisirs :  <input type="button" name="addloisirs" value="Ajouter mes loisirs" onClick="addLoisirs()"></div>
-						</br>
-						</br>
-							<div  id="myInformation">Informations complémentaires : <input type="button" name="addinformation" value="Ajouter mes informations complémentaires" onClick="addInformation()"></div>
-						</br>
-						</br>
-							<form method="post" action="" name="formCV" enctype="multipart/form-data">
-							Ajouter un CV : <input type="file" name="uploadCV">	
-						</br>
-						</br>
-							<div id="submitProfil"></div>
+								<div id='infoperso'>Nom  Prenom    Age
+							</br>
+								Region</div>
+							</div>
+							<div class="text2">
+							</br>
+							</br>
+								<div  id="myFormation">Formation : <input type="button" name="addformation" value="Ajouter une formation" onClick="addFormation()"></div> 
+							</br>
+							</br>
+								<div  id="myExperience">Expérience : <input type="button" name="addexperience" value="Ajouter une expérience" onClick="addExperience()"></div>
+							</br>
+							</br>
+								<div  id="myLoisirs">Loisirs :  <input type="button" name="addloisirs" value="Ajouter mes loisirs" onClick="addLoisirs()"></div>
+							</br>
+							</br>
+								<div  id="myInformation">Informations complémentaires : <input type="button" name="addinformation" value="Ajouter mes informations complémentaires" onClick="addInformation()"></div>
+							</br>
+							</br>
+								<form method="post" action="" name="formCV" enctype="multipart/form-data">
+								Ajouter un CV : <input type="file" name="uploadCV">	
+							</br>
+							</br>
+								<div id="submitProfil"></div>
 
-						</div>
+							
+					</div>
 						
 				</div>
 				
