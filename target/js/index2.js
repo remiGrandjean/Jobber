@@ -14,23 +14,24 @@ $(document).ready(function(event) {
 		Draggable.create("#profil", {
 		   	throwProps:true,
 		   	onDragEnd:function(endX) {
-	   			if(Math.round(this.endX) > 0 ) {
+	   			if(Math.round(this.endX) > 100 ) {
 	   				swipeLike();			
 	   			}
-	   			else {
+	   			else if(Math.round(this.endX) < -100){
 	   				swipeDislike();
 	   			}
-	   			console.log(Math.round(this.endX));
+	   			
 			}
 		});
 	}
+
 
 	function swipeLike() {
 		
 			var $profil = $("div.content").find('#profil');
 
 			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$profil]});
-			swipe.staggerTo($profil, 0.8, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
+			swipe.staggerTo($profil, 1, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
@@ -40,7 +41,7 @@ $(document).ready(function(event) {
 			var $profil = $("div.content").find('#profil');
 
 			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$profil]});
-			swipe.staggerTo($profil, 0.8, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
+			swipe.staggerTo($profil, 1, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
@@ -50,7 +51,7 @@ $(document).ready(function(event) {
 	}
 
 	function addNewProfile() {
-	var random =Math.floor(Math.random() * 3);
+		var random =Math.floor(Math.random() * 3);
 		var experience=['Aucune','Developpeur Java, IBM</br>Chef de projet, IBM','Administrateur réseau, ATOS'][random];
 		var nom = ['David Hinds', 'Cedric Floch', 'Bob leymar'][random];
 		var formation = ['Bac S ','BTS Informatique','DUT Informatique','CDD'][random];
