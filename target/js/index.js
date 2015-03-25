@@ -20,7 +20,7 @@ $(document).ready(function(event) {
 	   			else {
 	   				swipeDislike();
 	   			}
-	   			console.log(Math.round(this.endX));
+	   			
 			}
 		});
 	}
@@ -30,7 +30,7 @@ $(document).ready(function(event) {
 			var $annonce = $("div.content").find('#annonce');
 
 			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$annonce]});
-			swipe.staggerTo($annonce, 0.8, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
+			swipe.staggerTo($annonce, 1, {bezier:[{left:"+=400", top:"+=300", rotation:"60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
@@ -40,7 +40,7 @@ $(document).ready(function(event) {
 			var $annonce = $("div.content").find('#annonce');
 
 			var swipe = new TimelineMax({repeat:0, yoyo:false, repeatDelay:0, onComplete:remove, onCompleteParams:[$annonce]});
-			swipe.staggerTo($annonce, 0.8, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
+			swipe.staggerTo($annonce, 1, {bezier:[{left:"+=-350", top:"+=300", rotation:"-60"}], ease:Power1.easeInOut});
 
 			addNewProfile();
 	}
