@@ -27,8 +27,7 @@
 }
 
 body {
-	background-color: #334960; 
-
+	background-color: #334960;
 }
 
 div.annonce, div.profil {
@@ -68,7 +67,10 @@ span.meta span {
 	color:#cfcfcf;
 }
 
-
+#conteneur {
+	position: fixed;
+	width: 100%;
+}
 
 
 .chat {
