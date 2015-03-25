@@ -13,6 +13,10 @@
   -ms-user-select: none;
   user-select: none;
 }
+#conteneur {
+  position: fixed;
+  width: 100%;
+}
 .buddy {
   display: none;
   background: #fff;
