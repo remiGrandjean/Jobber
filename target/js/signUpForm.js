@@ -25,25 +25,29 @@ function valid_form(){
 		return false;
 	}
 }
-$('connectionform').on('submit',function(e){
+$('#coForm').click(function(){
 	e.preventDefault();
 	var email=$('login').val();
-	var mdp =$('password').val();
-	a = new authen(email,mdp);
-	console.log(a);
-	$.ajax({
+	var mdp =$('password').val();	
+	xhr_object.open("GET", "http://localhost:9876/v1/user/"+email, false); 
+	xhr_object.send(null); 
+	if(xhr_object.readyState == 4) alert("Requête effectuée !"); 
+	/*$.ajax({
 		type: "GET",
-		url: "http://localhost:9876/v1/jobber/user",			
+		url: "http://localhost:9876/v1/user/"+email,			
 		contentType: "application/json; charset=utf-8",				   
 		data: '{"email": "' + email + '", "mdp" : "' + mdp + '"}',
 		dataType: "json", 
 		success:function(){
-			alert(data);
+			a = new authen(email,mdp);
+			console.log(a);
+			$('formulaire').append("Connection réussi");
 		},
 		error:function(){
-			alert("Error");
+			$('formulaire').append("Identifiants incorrects");
 		}
-	});
+	});*/
+	
 });
 
 $('myform').on('submit',function(e){

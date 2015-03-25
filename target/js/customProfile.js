@@ -1,18 +1,42 @@
 function loadProfil(){
 	var nom,prenom,region,age;
-	$.ajax({
+
+	var invocation = new XMLHttpRequest();
+	var url = "http://localhost:9876/v1/user/boid@gmail.com/getInfoperso";
+   
+	function callOtherDomain() {
+  	if(invocation) {    
+   	 invocation.open('GET', url, true);
+   	 invocation.onreadystatechange = handler;
+     invocation.send(); 
+
+ 	 }
+	}
+	 function handler(evtXHR) {
+    if (invocation.readyState == 4)
+    {
+      if (invocation.status == 200) {
+          alert('gg');
+      }
+      else {
+        alert("Invocation Errors Occured");
+      }
+    }
+  }
+	callOtherDomain();
+	/*$.ajax({
 	    type: "GET",
-        url: "http://localhost:9876/v1/user/getInfoperso",			
+        url: "http://localhost:9876/v1/user/boid@gmail.com/getInfoperso",			
 	    contentType: "application/json; charset=utf-8",				   
 		data: '{"nom": "'+nom+'","prenom":"'+prenom+'","region":"'+region+'","age":"'+age+'"}',
-	    dataType: "json",
+	    dataType: "jsonp",
 		success:function(){
-        	$('inforperso').replaceWith(nom+' '+prenom+' '+age+'</br>'+region);
+        	$('infoperso').replaceWith(nom+' '+prenom+' '+age+'</br>'+region);
         },
         error:function(){
 	    	alert("Error");
 		}
-	});
+	});*/
 	
 }
 
