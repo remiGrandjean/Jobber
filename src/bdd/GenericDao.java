@@ -12,7 +12,7 @@ import classeJava.User;
 public interface GenericDao {
 
 	// User---------------------------------------------------------------
-	@SqlUpdate("create table if not exists Users (email varchar(10) primary key,mdp var(10),nom varchar(15),prenom varchar(15),age integer, region text,role text,formation text,experience text,loisirs text,information text)")
+	@SqlUpdate("create table if not exists Users (email varchar(20) primary key,mdp var(10),nom varchar(15),prenom varchar(15),age integer, region text,role text,formation text,experience text,loisirs text,information text)")
 	void createUsersTable();
 
 	@SqlUpdate("insert into Users (email,mdp,nom,prenom,age,region,role) values (:email,:mdp,:nom,:prenom,:age,:region)")
@@ -93,11 +93,28 @@ public interface GenericDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	User findAnnonceById(@Bind("id") int id);
 
-	@SqlQuery("select * from Annonce")
+	@SqlQuery("select * from Annonces")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	String findAllAnnonce();
 
 	@SqlUpdate("drop table if exists Annonces")
 	void dropAnnonceTable();
+
+	// Rencontre
+	@SqlUpdate("create table if not exists Rencontre ("
+			+ "id integer, email varchar(20), foreign key(id) references Annonces(id),foreign key(email) references Users(email))")
+	void createRencontreTable();
+
+	@SqlUpdate("insert into Rencontre values (:id, :email)")
+	@GetGeneratedKeys
+	int addRencontre(@Bind("id") int id, @Bind("email") String mail);
+
+	@SqlQuery("select * from Rencontre where email = :email")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findRencontreByEmail(@Bind("email") String email);
+
+	@SqlQuery("select * from Rencontre where id = :id")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	String findRencontreById(@Bind("id") int id);
 
 }

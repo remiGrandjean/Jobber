@@ -24,6 +24,15 @@
 		<script>
 			
 			$(document).ready(function() {
+				var xhr_object = null;
+				if(window.XMLHttpRequest) // Firefox 
+				   xhr_object = new XMLHttpRequest(); 
+				else if(window.ActiveXObject) // Internet Explorer 
+				   xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
+				else { // XMLHttpRequest non supporté par le navigateur 
+				   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
+				   return; 
+				}  
 				var a=undefined;
 				var authen = function(email,mdp){
 					this.email=email;
@@ -36,31 +45,14 @@
 						$('#formulaire').append("Identifiants erronés");
 						console.log("pas gg");
 					}
-				}	
-				if(a!==undefined){
-					var email=a.email;
-					var mdp =a.mdp;
-					console.log(email,mdp);
-					$.ajax({
-				   	    type: "GET",
-				   	    url: "http://localhost:9876/v1/jobber/user/"+email+"/"+mdp,			
-				   	    contentType: "application/json; charset=utf-8",				   
-				   	   	data: '{"email": "' + email + '", "mdp" : "' + mdp + '"}',
-				        dataType: "json",
-				      	success:function(){
-				       		$('#profil').append(data);
-				   	    },
-				        error:function(){
-					       	alert("Error");
-					    }
-					});
-				}
+				}				
+				
 				window.onload=loadProfil();
 				var str;
 				document.getElementById("formulaire").appendChild(document.createElement('div'));
 				$('#connection').click(function (event) {
 					str = "";
-					str+="<form name='connectionform' >Login : <center><input type='text' id='login' placeholder='Login'></center>"
+					str+="<form name='connectionform' >Email : <center><input type='text' id='login' placeholder='Login'></center>"
 					str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
 					$('#formulaire div').replaceWith('<div>'+str+'</div>');				
 				});

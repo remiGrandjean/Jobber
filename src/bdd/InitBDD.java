@@ -16,6 +16,7 @@ public class InitBDD {
 		dao = dbi.open(GenericDao.class);
 		dao.createUsersTable();
 		dao.createAnnonceTable();
+		dao.createRencontreTable();
 	}
 
 	private static InitBDD instance = null;

@@ -26,50 +26,68 @@ public class jobberREST {
 	}
 
 	@GET
-	@Path("/user")
+	@Path("/user/{email}")
 	public User getUserByMail(@PathParam("email") String email,
 			@PathParam("mdp") String mdp) {
 		return dao.findUsersByLog(email, mdp);
 	}
 
 	@GET
-	@Path("/user/getFormation")
+	@Path("/user/{email}/getFormation")
 	public String getFormationByMail(@PathParam("email") String email,
 			@PathParam("formation") String formation) {
 		return dao.findFormationFromUser(email, formation);
 	}
 
 	@GET
-	@Path("/user/getExperience")
+	@Path("/user/{email}/getExperience")
 	public String getExperienceByMail(@PathParam("email") String email,
 			@PathParam("experience") String experience) {
 		return dao.findExperienceFromUser(email, experience);
 	}
 
 	@GET
-	@Path("/user/getLoisirs")
+	@Path("/user/{email}/getLoisirs")
 	public String getLoisirsByMail(@PathParam("email") String email,
 			@PathParam("loisirs") String loisirs) {
 		return dao.findLoisirsFromUser(email, loisirs);
 	}
 
 	@GET
-	@Path("/user/getInformation")
+	@Path("/user/{email}/getInformation")
 	public String getInformationByMail(@PathParam("email") String email,
 			@PathParam("formation") String information) {
 		return dao.findInformationFromUser(email, information);
 	}
 
 	@GET
-	@Path("/user/getInfoperso")
+	@Path("/user/{email}/getInfoperso")
 	public String getInfoperso(@PathParam("email") String email,
 			@PathParam("nom") String nom, @PathParam("prenom") String prenom,
 			@PathParam("age") int age, @PathParam("region") String region) {
 		return dao.findInfoPerso(nom, prenom, age, region, email);
 	}
 
+	@GET
+	@Path("/rencontre/annonce/{id}")
+	public User getAnnonceById(@PathParam("id") int id) {
+		return dao.findAnnonceById(id);
+	}
+
+	@GET
+	@Path("/user/{email}/getRencontreByEmail")
+	public String getRencotreByEmail(@PathParam("email") String email) {
+		return dao.findRencontreByEmail(email);
+	}
+
+	@GET
+	@Path("/user/{id}/getRencontreById")
+	public String getRencotreById(@PathParam("id") int id) {
+		return dao.findRencontreById(id);
+	}
+
 	@POST
-	@Path("/jobber/addUser")
+	@Path("/user/addUser")
 	public void createUser(@PathParam("email") String email,
 			@PathParam("mdp") String mdp, @PathParam("nom") String nom,
 			@PathParam("prenom") String prenom, @PathParam("age") int age,
@@ -79,7 +97,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addFormation")
+	@Path("/user/{email}/addFormation")
 	public void addFormation(@PathParam("email") String email,
 			@PathParam("formation") String formation) {
 		dao.addFormation(email, formation);
@@ -87,7 +105,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addExperience")
+	@Path("/user/{email}/addExperience")
 	public void addExperience(@PathParam("email") String email,
 			@PathParam("experience") String experience) {
 		dao.addFormation(email, experience);
@@ -95,7 +113,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addLoisirs")
+	@Path("/user/{email}/addLoisirs")
 	public void addLoisirs(@PathParam("email") String email,
 			@PathParam("loisirs") String loisirs) {
 		dao.addFormation(email, loisirs);
@@ -103,7 +121,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addInformation")
+	@Path("/user/{email}/addInformation")
 	public void addInformation(@PathParam("email") String email,
 			@PathParam("information") String information) {
 		dao.addFormation(email, information);
@@ -111,7 +129,7 @@ public class jobberREST {
 	}
 
 	@POST
-	@Path("/jobber/addAnnonce")
+	@Path("/annonce/addAnnonce")
 	public void createAnnonce(@PathParam("titre") String titre,
 			@PathParam("typeJob") String typeJob,
 			@PathParam("description") String description,
@@ -120,9 +138,11 @@ public class jobberREST {
 
 	}
 
-	@GET
-	@Path("/jobber/annonce/{id}")
-	public User getAnnonceById(@PathParam("id") int id) {
-		return dao.findAnnonceById(id);
+	@POST
+	@Path("/rencontre/addRencontre")
+	public void addRencontre(@PathParam("id") int id,
+			@PathParam("email") String email) {
+		dao.addRencontre(id, email);
 	}
+
 }
