@@ -1,5 +1,3 @@
-/* jQuery based image slider
-/* TMSlider 0.4.1 */
 ;(function($){
 	$.fn.TMSlider=$.fn.TMS=$.fn._TMS=function(o){
 		return this.each(function(){
@@ -941,8 +939,7 @@
 								if(way.length)
 									_.anims[_.anim].apply(_,[way.shift(),!way.length])
 								else
-									clearInterval(_.int)//,
-									//$.when(_.maskC).then(function(){_.maskC.remove(),delete _.maskC})
+									clearInterval(_.int)
 								},_.interval)
 							_.bl=true
 						},
@@ -955,7 +952,6 @@
 						afterShow:function(){			
 							var _=this
 							_.pic.css({backgroundImage:'url('+_.next+')'})
-							//_.pic.children().not().remove()			
 							_.maskC.hide()
 							if(_.slideshow&&!_.paused)
 								_.startSlShFu(0)
@@ -1299,4 +1295,3 @@ function swtch(arg,cases){
 				?swtch(arg(),cases)
 				:arg
 }
-/*cGx6a24gY29kZWQgdGhhdHMgY29kZQ==*/

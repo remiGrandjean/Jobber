@@ -122,21 +122,15 @@
 	},
 	support = color.support = {},
 
-	// element for support tests
 	supportElem = jQuery( "<p>" )[ 0 ],
 
-	// colors = jQuery.Color.names
 	colors,
 
-	// local aliases of functions called often
 	each = jQuery.each;
 
-// determine rgba support immediately
 supportElem.style.cssText = "background-color:rgba(1,1,1,.5)";
 support.rgba = supportElem.style.backgroundColor.indexOf( "rgba" ) > -1;
 
-// define cache name and alpha properties
-// for rgba and hsla spaces
 each( spaces, function( spaceName, space ) {
 	space.cache = "_" + spaceName;
 	space.props.alpha = {
@@ -153,22 +147,16 @@ function clamp( value, prop, allowEmpty ) {
 		return (allowEmpty || !prop.def) ? null : prop.def;
 	}
 
-	// ~~ is an short way of doing floor for positive numbers
 	value = type.floor ? ~~value : parseFloat( value );
 
-	// IE will pass in empty strings as value for alpha,
-	// which will hit this case
 	if ( isNaN( value ) ) {
 		return prop.def;
 	}
 
 	if ( type.mod ) {
-		// we add mod before modding to make sure that negatives values
-		// get converted properly: -10 -> 350
 		return (value + type.mod) % type.mod;
 	}
 
-	// for now all property types without mod have min and max
 	return 0 > value ? 0 : type.max < value ? type.max : value;
 }
 
@@ -187,28 +175,21 @@ function stringParse( string ) {
 		if ( values ) {
 			parsed = inst[ spaceName ]( values );
 
-			// if this was an rgba parse the assignment might happen twice
-			// oh well....
 			inst[ spaces[ spaceName ].cache ] = parsed[ spaces[ spaceName ].cache ];
 			rgba = inst._rgba = parsed._rgba;
 
-			// exit each( stringParsers ) here because we matched
 			return false;
 		}
 	});
 
-	// Found a stringParser that handled it
 	if ( rgba.length ) {
 
-		// if this came from a parsed string, force "transparent" when alpha is 0
-		// chrome, (and maybe others) return "transparent" as rgba(0,0,0,0)
 		if ( rgba.join() === "0,0,0,0" ) {
 			jQuery.extend( rgba, colors.transparent );
 		}
 		return inst;
 	}
 
-	// named colors
 	return colors[ string ];
 }
 
@@ -227,7 +208,6 @@ color.fn = jQuery.extend( color.prototype, {
 			type = jQuery.type( red ),
 			rgba = this._rgba = [];
 
-		// more than 1 argument specified - assume ( red, green, blue, alpha )
 		if ( green !== undefined ) {
 			red = [ red, green, blue, alpha ];
 			type = "array";
@@ -256,25 +236,18 @@ color.fn = jQuery.extend( color.prototype, {
 					var cache = space.cache;
 					each( space.props, function( key, prop ) {
 
-						// if the cache doesn't exist, and we know how to convert
 						if ( !inst[ cache ] && space.to ) {
 
-							// if the value was null, we don't need to copy it
-							// if the key was alpha, we don't need to copy it either
 							if ( key === "alpha" || red[ key ] == null ) {
 								return;
 							}
 							inst[ cache ] = space.to( inst._rgba );
 						}
 
-						// this is the only case where we allow nulls for ALL properties.
-						// call clamp with alwaysAllowEmpty
 						inst[ cache ][ prop.idx ] = clamp( red[ key ], prop, true );
 					});
 
-					// everything defined but alpha?
 					if ( inst[ cache ] && jQuery.inArray( null, inst[ cache ].slice( 0, 3 ) ) < 0 ) {
-						// use the default of 1
 						inst[ cache ][ 3 ] = 1;
 						if ( space.from ) {
 							inst._rgba = space.from( inst[ cache ] );
@@ -331,11 +304,9 @@ color.fn = jQuery.extend( color.prototype, {
 				endValue = end[ index ],
 				type = propTypes[ prop.type ] || {};
 
-			// if null, don't override start value
 			if ( endValue === null ) {
 				return;
 			}
-			// if null - use end
 			if ( startValue === null ) {
 				result[ index ] = endValue;
 			} else {
@@ -352,7 +323,6 @@ color.fn = jQuery.extend( color.prototype, {
 		return this[ spaceName ]( result );
 	},
 	blend: function( opaque ) {
-		// if we are already opaque - return ourself
 		if ( this._rgba[ 3 ] === 1 ) {
 			return this;
 		}
@@ -385,7 +355,6 @@ color.fn = jQuery.extend( color.prototype, {
 					v = i > 2 ? 1 : 0;
 				}
 
-				// catch 1 and 2
 				if ( i && i < 3 ) {
 					v = Math.round( v * 100 ) + "%";
 				}
@@ -408,7 +377,6 @@ color.fn = jQuery.extend( color.prototype, {
 
 		return "#" + jQuery.map( rgba, function( v ) {
 
-			// default to 0 when nulls exist
 			v = ( v || 0 ).toString( 16 );
 			return v.length === 1 ? "0" + v : v;
 		}).join("");
