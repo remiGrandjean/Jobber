@@ -25,17 +25,12 @@ text-decoration:none;
 }
 
 #line2{
-  /* To make sure that all text field have the same font settings
-     By default, textarea are set with a monospace font */
-  font: 1em sans-serif;
 
-  /* To give the same size to all text field */
+  font: 1em sans-serif;
   width: 80px;
   margin-left: -285px;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
-
-  /* To harmonize the look & feel of text field border */
   border: 1px solid #999;
 }
 
@@ -387,39 +382,8 @@ header.page5 .hover {
 	background-color: #7f4c76;
 }
 
-.socials {
-	padding-top: 45px;
-	text-align: center;
-	font-size: 0;
-	line-height: 0;
-}
 
-.socials a {
-	display: inline-block;
-	font-size: 0;
-	line-height: 0;
-	width: 69px;
-	height: 69px;
-	background: url(../images/socials.png) 0 0 no-repeat;
-}
 
-.socials a:hover {
-	opacity: 0.5;
-}
-
-.socials a+a {
-	margin-left: 18px;
-	background-position: -87px 0;
-}
-
-.socials a+a+a {
-	background-position: -175px 0;
-	margin-left: 19px;
-}
-
-.socials a+a+a+a {
-	background-position: right 0;
-}
 
 .text1 {
 	font-size: 19px;
@@ -448,43 +412,6 @@ header.page5 .hover {
 	margin-bottom: 117px;
 }
 
-
-
-.socials1 {
-	margin-top: 19px;
-	padding-top: 24px;
-	border-top: 2px solid #2aae96;
-	text-align: center;
-	font-size: 0;
-	line-height: 0;
-}
-
-.socials1 a {
-	display: inline-block;
-	font-size: 0;
-	line-height: 0;
-	width: 31px;
-	height: 31px;
-	background: url(../images/soc1.png) 0 0 no-repeat;
-}
-
-.socials1 a:hover {
-	opacity: 0.5;
-}
-
-.socials1 a+a {
-	width: 32px;
-	margin-left: 8px;
-	background-position: -39px 0;
-}
-
-.socials1 a+a+a {
-	background-position: -79px 0;
-}
-
-.socials1 a+a+a+a {
-	background-position: right 0;
-}
 
 #page3  {
 	padding-bottom: 190px;
@@ -650,12 +577,4 @@ footer a:hover {
 }
 #toTop:hover {
 	background-position: right 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0c37e5e35cbb3c1ac182252fc1a7cecbab3792ae
-=======
-}
->>>>>>> 9be81c4b5b5f97ecbdd35ba52a20370d5284236b

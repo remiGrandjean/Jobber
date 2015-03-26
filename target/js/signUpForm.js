@@ -25,14 +25,11 @@ function valid_form(){
 		return false;
 	}
 }
-$('#coForm').click(function(){
+$('connectionform').on('submit',function(e){
 	e.preventDefault();
 	var email=$('login').val();
 	var mdp =$('password').val();	
-	xhr_object.open("GET", "http://localhost:9876/v1/user/"+email, false); 
-	xhr_object.send(null); 
-	if(xhr_object.readyState == 4) alert("Requête effectuée !"); 
-	/*$.ajax({
+	$.ajax({
 		type: "GET",
 		url: "http://localhost:9876/v1/user/"+email,			
 		contentType: "application/json; charset=utf-8",				   
@@ -46,7 +43,7 @@ $('#coForm').click(function(){
 		error:function(){
 			$('formulaire').append("Identifiants incorrects");
 		}
-	});*/
+	});
 	
 });
 
