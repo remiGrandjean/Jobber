@@ -50,11 +50,10 @@ $(document).ready(function(event) {
 	}
 
 	function addNewProfile() {
-		var random =Math.floor(Math.random() * 7);
-		var description=['Recherche stagiaire pour un stage','cherche</br> administrateur</br> reseau</br> bac+3 </br>avec 2</br> ans d</br> experie</br>nce','cherche quelqu un de competent','on accepte tout le monde','venez comme vous êtes','cherche sportif','Organisation réservé aux membre VIP'][random];
-		var names = ['CGI', 'GFI', 'IBM', 'CAPGEMINI', 'McDonald', 'Décathlon', 'Boid'][random];
-		var typeJob = ['Stage','CDI','CDD','CDD','Interim', 'Stage', 'Maitre du monde'][random];
-		var annonces = ['1', '2', '3', '4', '5', '6', '7'][random];
+		var random =Math.floor(Math.random() * 6);
+		var description=['Recherche stagiaire pour le développement de notre site web.</br>Stage de 6 mois rémunéré.</br>Bac +2 minimum.','Recherche administrateur reseau expérimenté.</br>Bac +5 minimum.</br>Urgent.','Recherche administrateur de base de donnée.</br>Technologie : MySQL/Apache.','Cherche un directeur des ressources humaines.</br>Bac +3 minimum.</br>Expérience exigé.','Recherche hôte d accueil H/F.','Recherche stagiare pour la mise en rayon de produit</br>Passion pour le sport recommandée.'][random];
+		var names = ['CGI', 'GFI', 'IBM', 'CAPGEMINI', 'McDonald', 'Décathlon'][random];
+		var typeJob = ['Stage','CDI','CDD','CDD','Interim', 'Stage'][random];
 		$("div.content").prepend('<div class="annonce" id="annonce"><span class="meta"><p>'+names+', '+typeJob+'</p></span>'
 		+description
     	+ '</div>');
