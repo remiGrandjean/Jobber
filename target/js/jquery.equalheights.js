@@ -1,4 +1,3 @@
-/*parsed HTML*/
 $(function(){
 	$(".maxheight").each(function(){
 		$(this).contents().wrapAll("<div class='box_inner'></div>");
@@ -10,7 +9,6 @@ $(function(){
 		$(this).contents().wrapAll("<div class='box_inner'></div>");
 	})
 })
-/*add event*/
 $(window).bind("resize", height_handler).bind("load", height_handler)
 function height_handler(){
 	if($(window).width()>767){
@@ -29,7 +27,6 @@ function height_handler(){
 		$(".maxheight2").css({'height':'auto'});
 	}
 }
-/*glob function*/
 (function($){
 	$.fn.equalHeights=function(minHeight,maxHeight){
 		tallest=(minHeight)?minHeight:0;
