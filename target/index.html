@@ -45,7 +45,7 @@
 				$('#connection').click(function (event) {
 					str = "";
 					str+="<form name='connectionform' >Email : <center><input type='text' id='login' placeholder='Login'></center>"
-					str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit'></form>";
+					str+="Mot de passe : <center><input type='password' id='password' placeholder='Mot de passe'></center></br><input type='submit' class='top_button'></form>";
 					$('#formulaire div').replaceWith('<div>'+str+'</div>');				
 				});
 				$('#inscription').click(function (event) {
@@ -60,7 +60,7 @@
 					str+="<center><input type='password' id='line4' name='passwd' placeholder='******'>";
 					str+="<input type='password' id = 'line4' name='confirm_passwd' placeholder='******'></center>";
 					str+="Entreprise <input type='radio' name='role' value='Entreprise'> "; 
-					str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' id='valider'></form></div>";				
+					str+="Particulier<input type='radio' name='role' value='Particulier'></br><input type='submit' class='top_button' id='valider'></form></div>";				
 					//$('#formulaire div').replaceWith('<div>'+str+'</div>');				
 					$('#formulaire div').replaceWith('<div>'+str+'</div>');
 				});
@@ -229,16 +229,16 @@
 							<div class="text2">
 							</br>
 							</br>
-								<div  id="myFormation">Formation : <input type="button" id='buttonformation' name="addformation" value="Ajouter une formation" onClick="addFormation() "></div> 
+								<div  id="myFormation">Formation : <input type="button" id='buttonformation' class='profil_button' name="addformation" value="Ajouter une formation" onClick="addFormation() "></div> 
 							</br>
 							</br>
-								<div  id="myExperience">Expérience : <input type="button" id='buttonexperience' name="addexperience" value="Ajouter une expérience" onClick="addExperience()"></div>
+								<div  id="myExperience">Expérience : <input type="button" id='buttonexperience' class='profil_button' name="addexperience" value="Ajouter une expérience" onClick="addExperience()"></div>
 							</br>
 							</br>
-								<div  id="myLoisirs">Loisirs :  <input type="button" id='buttonloisirs' name="addloisirs" value="Ajouter mes loisirs" onClick="addLoisirs()"></div>
+								<div  id="myLoisirs">Loisirs :  <input type="button" id='buttonloisirs' class='profil_button' name="addloisirs" value="Ajouter mes loisirs" onClick="addLoisirs()"></div>
 							</br>
 							</br>
-								<div  id="myInformation">Informations complémentaires : <input type="button" id='buttoninformation' name="addinformation" value="Ajouter mes informations complémentaires" onClick="addInformation()"></div>
+								<div  id="myInformation">Informations complémentaires : <input type="button" id='buttoninformation' class='profil_button' name="addinformation" value="Ajouter mes informations complémentaires" onClick="addInformation()"></div>
 							</br>
 							</br>
 								<form method="post" action="" name="formCV" enctype="multipart/form-data">
@@ -269,7 +269,7 @@
 				<div class="clear"></div>
 				<div class="map">
 					<div class="grid_3">
-						<div class="text1">Addresse</div>
+						<div class="text1">Adresse</div>
 						<address>
 							<dl>
 								<dt>Jobber.<br>
@@ -287,7 +287,7 @@
 						</br>
 							<textarea rows='3' cols='50' id='messageform' placeholder='Votre message...'></textarea>
 						</br>
-							<input type='submit'>							
+							<input type='submit' class='top_button'>							
 						</form>
 <!--==============================footer=================================-->
 		<footer>
